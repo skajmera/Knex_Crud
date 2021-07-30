@@ -1,14 +1,14 @@
 const knex = require('knex')({
     client: 'mysql',
     connection: {
-        host: 'localhost',
-        user: 'root',
-        password: 'Anand@18',
-        database: 'NG1'
+        host: process.env.db,
+        user:process.env.user ,
+        password:process.env.password ,
+        database:process.env.db_name 
     },
     useNullAsDefault: true
 });
-knex.schema.createTable("NG2", (table) => {
+knex.schema.createTable("Users", (table) => {
     table.increments('id').primary();
     table.string('Name')
     table.string('email')
